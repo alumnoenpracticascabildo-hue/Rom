@@ -1,0 +1,247 @@
+<!-- ════════════════════════════════════════════════════════════════════════════════════
+  LOGOS BAND - Colaboraciones & Medios
+  Standalone widget with animated marquee and hover effects
+  ════════════════════════════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+.logos-band-wrapper {
+  --blue: #1a56db;
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-400: #94a3b8;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition: .3s cubic-bezier(.4,0,.2,1);
+}
+
+.logos-band-wrapper * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.logos-band-wrapper {
+  padding: 2.5rem 0;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(180deg, var(--slate-50) 0%, #f5f9fc 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Gradient overlays for fade effect */
+.logos-band-wrapper::before,
+.logos-band-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.logos-band-wrapper::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--slate-50) 0%, transparent 100%);
+}
+
+.logos-band-wrapper::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--slate-50) 0%, transparent 100%);
+}
+
+.logos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.logos-label {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--slate-400);
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-family: var(--font-sans);
+  animation: fadeInDown 0.6s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logos-track {
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.logos-inner {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  white-space: nowrap;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+  padding-right: 3.5rem;
+}
+
+.logos-track:hover .logos-inner {
+  animation-play-state: paused;
+}
+
+.logos-inner:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-img {
+  height: 32px;
+  max-height: 32px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  opacity: .45;
+  filter: grayscale(100%);
+  transition: all var(--transition);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.logo-img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.08);
+}
+
+/* Stagger animation on load */
+.logo-img {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 0.45;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .logos-band-wrapper {
+    padding: 2rem 0;
+  }
+
+  .logos-label {
+    font-size: .6rem;
+    margin-bottom: 1rem;
+  }
+
+  .logos-inner {
+    gap: 2rem;
+  }
+
+  .logo-img {
+    height: 28px;
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logos-band-wrapper {
+    padding: 1.5rem 0;
+  }
+
+  .logos-container {
+    padding: 0 1.2rem;
+  }
+
+  .logo-img {
+    height: 24px;
+    max-width: 100px;
+  }
+
+  .logos-inner {
+    gap: 1.5rem;
+  }
+}
+</style>
+
+<div class="logos-band-wrapper">
+  <div class="logos-container">
+    <p class="logos-label">Colaboraciones &amp; Medios</p>
+    <div class="logos-track">
+      <div class="logos-inner">
+        <!-- First set -->
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/comunidad-pericial-Roman-Alvarez-1-1.png" alt="Comunidad Pericial" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/Logo-Escuela-Nacional-de-Peritos220.png" alt="Escuela Nacional de Peritos" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/Chasis-Cero-Roman-Alvarez.png" alt="Chasis Cero" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/Diario-de-Sevilla-Roman-Alvarez.png" alt="Diario de Sevilla" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/El-Espanol-Roman-Alvarez.png" alt="El Español" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/La-Vanguardia-Roman-Alvarez.png" alt="La Vanguardia" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/elEconomista-Roman-Alvarez.png" alt="elEconomista" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/Noticias-de-Alava-Roman-Alvarez.png" alt="Noticias de Álava" class="logo-img" loading="lazy">
+
+        <!-- Duplicate for continuous marquee -->
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/comunidad-pericial-Roman-Alvarez-1-1.png" alt="Comunidad Pericial" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/Logo-Escuela-Nacional-de-Peritos220.png" alt="Escuela Nacional de Peritos" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/Chasis-Cero-Roman-Alvarez.png" alt="Chasis Cero" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/Diario-de-Sevilla-Roman-Alvarez.png" alt="Diario de Sevilla" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/El-Espanol-Roman-Alvarez.png" alt="El Español" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/La-Vanguardia-Roman-Alvarez.png" alt="La Vanguardia" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/elEconomista-Roman-Alvarez.png" alt="elEconomista" class="logo-img" loading="lazy">
+        <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/Noticias-de-Alava-Roman-Alvarez.png" alt="Noticias de Álava" class="logo-img" loading="lazy">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Smooth pause/resume with cursor
+const track = document.querySelector('.logos-track');
+const inner = document.querySelector('.logos-inner');
+
+if (track && inner) {
+  track.addEventListener('mouseenter', () => {
+    inner.style.animationPlayState = 'paused';
+  });
+
+  track.addEventListener('mouseleave', () => {
+    inner.style.animationPlayState = 'running';
+  });
+
+  // Touch support for mobile
+  track.addEventListener('touchstart', () => {
+    inner.style.animationPlayState = 'paused';
+  });
+
+  track.addEventListener('touchend', () => {
+    inner.style.animationPlayState = 'running';
+  });
+}
+</script>

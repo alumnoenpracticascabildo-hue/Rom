@@ -1,0 +1,608 @@
+<!-- ════════════════════════════════════════════════════════════════════════════════════
+  COBERTURA NACIONAL - Dark Section with Coverage Cards
+  Interactive cards with hover effects, gradient background, booking section
+  ════════════════════════════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+.cobertura-wrapper {
+  --navy: #0d1f3c;
+  --blue: #1a56db;
+  --blue-light: #3b82f6;
+  --blue-accent: #60a5fa;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --transition: .3s cubic-bezier(.4,0,.2,1);
+}
+
+.cobertura-wrapper * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.cobertura-wrapper {
+  padding: 3.5rem 2rem;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2a5082 50%, #305a8e 100%);
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Animated background elements */
+.cobertura-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 15s ease-in-out infinite;
+  z-index: 0;
+}
+
+.cobertura-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(26, 86, 219, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 18s ease-in-out infinite reverse;
+  z-index: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(40px); }
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--blue-accent);
+  margin-bottom: 1.2rem;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.section-tag::before {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 1.5px;
+  background: var(--blue-accent);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  animation: slideInLeft 0.8s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.section-title em {
+  font-style: italic;
+  color: #93c5fd;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 300;
+  line-height: 1.75;
+  max-width: 560px;
+  margin-bottom: 3rem;
+  animation: slideInLeft 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.cobertura-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.dark-caja {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 2rem 1.8rem;
+  transition: all var(--transition);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Stagger animation */
+.dark-caja:nth-child(1) { animation-delay: 0.3s; }
+.dark-caja:nth-child(2) { animation-delay: 0.4s; }
+.dark-caja:nth-child(3) { animation-delay: 0.5s; }
+.dark-caja:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glow effect on hover */
+.dark-caja::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.dark-caja:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.dark-caja:hover::before {
+  opacity: 1;
+}
+
+.dark-col-header {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+  color: var(--blue-accent);
+  margin-bottom: 1.4rem;
+  font-family: var(--font-sans);
+  position: relative;
+  z-index: 1;
+  transition: color var(--transition);
+}
+
+.dark-caja:hover .dark-col-header {
+  color: #fff;
+}
+
+.dark-col-header svg {
+  transition: transform var(--transition);
+}
+
+.dark-caja:hover .dark-col-header svg {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.dark-col-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  font-family: var(--font-sans);
+  position: relative;
+  z-index: 1;
+}
+
+.dark-col-desc {
+  font-size: .9rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-sans);
+  position: relative;
+  z-index: 1;
+  transition: color var(--transition);
+}
+
+.dark-caja:hover .dark-col-desc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dark-col-link {
+  margin-top: auto;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+  color: var(--blue-accent);
+  text-transform: uppercase;
+  transition: all var(--transition);
+  font-family: var(--font-sans);
+  position: relative;
+  z-index: 1;
+}
+
+.dark-col-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width var(--transition);
+}
+
+.dark-caja:hover .dark-col-link {
+  color: #fff;
+}
+
+.dark-caja:hover .dark-col-link::after {
+  width: 100%;
+}
+
+/* MADRID ALLIANCE BLOCK */
+.madrid-alliance-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 2.5rem;
+  border-radius: 8px;
+  margin: 3rem 0;
+  animation: slideInUp 0.8s ease-out 0.7s forwards;
+  opacity: 0;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.madrid-header {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+  color: var(--blue-accent);
+  font-family: var(--font-sans);
+  margin-bottom: 1rem;
+}
+
+.madrid-content {
+  flex: 1;
+}
+
+.madrid-content > div {
+  max-width: 750px;
+}
+
+.madrid-content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: .8rem;
+  color: #fff;
+  font-family: var(--font-sans);
+}
+
+.madrid-content p {
+  font-size: .95rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+.madrid-content strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.madrid-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #0b1126;
+  font-weight: 800;
+  letter-spacing: .12em;
+  font-size: .8rem;
+  text-transform: uppercase;
+  padding: 1.2rem 2.8rem;
+  border-radius: 4px;
+  transition: all var(--transition);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  gap: .6rem;
+}
+
+.madrid-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(255, 255, 255, .15);
+  background: #f0f4f8;
+  color: #0d1f3c;
+}
+
+/* BOOKING BANNER */
+.dark-divider {
+  height: 1px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 3rem 0;
+}
+
+.dark-booking-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 2.5rem 3rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  animation: slideInUp 0.8s ease-out 0.8s forwards;
+  opacity: 0;
+}
+
+.dark-booking-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.dark-booking-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(30, 58, 104, 0.4);
+  color: var(--blue-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.dark-booking-banner:hover .dark-booking-icon {
+  background: rgba(96, 165, 250, 0.2);
+  transform: scale(1.1);
+}
+
+.dark-booking-left h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+  font-family: var(--font-sans);
+  color: #fff;
+}
+
+.dark-booking-left p {
+  font-size: .95rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+.booking-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #0b1126;
+  font-weight: 800;
+  letter-spacing: .12em;
+  font-size: .8rem;
+  text-transform: uppercase;
+  padding: 1.2rem 2.8rem;
+  border-radius: 4px;
+  transition: all var(--transition);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  gap: .6rem;
+  flex-shrink: 0;
+}
+
+.booking-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(255, 255, 255, .15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .cobertura-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .madrid-alliance-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .madrid-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .cobertura-wrapper {
+    padding: 3rem 1.5rem;
+  }
+
+  .cobertura-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dark-booking-banner {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .dark-booking-left {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dark-booking-icon {
+    margin: 0 auto;
+  }
+
+  .booking-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cobertura-wrapper {
+    padding: 2.5rem 1.2rem;
+  }
+
+  .section-container {
+    padding: 0;
+  }
+
+  .dark-caja {
+    padding: 1.5rem;
+  }
+
+  .madrid-alliance-block {
+    padding: 1.5rem 1.2rem;
+  }
+}
+</style>
+
+<div class="cobertura-wrapper">
+  <div class="section-container">
+    <div class="section-tag">Presencia Geográfica</div>
+    <h2 class="section-title">Peritación <em>Nacional</em></h2>
+    <p class="section-subtitle">Servicio presencial en las principales zonas del territorio con capacidad de desplazamiento nacional.</p>
+
+    <div class="cobertura-grid">
+      <a href="#contacto" class="dark-caja">
+        <div class="dark-col-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          COBERTURA
+        </div>
+        <div class="dark-col-title">Asturias · Gijón</div>
+        <div class="dark-col-desc">Sede central. Centro principal de peritaciones con inspecciones presenciales y gabinete técnico.</div>
+        <span class="dark-col-link">Consultar →</span>
+      </a>
+
+      <a href="#contacto" class="dark-caja">
+        <div class="dark-col-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          COBERTURA
+        </div>
+        <div class="dark-col-title">Tenerife</div>
+        <div class="dark-col-desc">Cobertura directa presencial en Canarias con servicio completo de peritación.</div>
+        <span class="dark-col-link">Consultar →</span>
+      </a>
+
+      <a href="#contacto" class="dark-caja">
+        <div class="dark-col-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          COBERTURA
+        </div>
+        <div class="dark-col-title">Barcelona</div>
+        <div class="dark-col-desc">Atención en Cataluña para casos periciales de automoción y accidentes.</div>
+        <span class="dark-col-link">Consultar →</span>
+      </a>
+
+      <a href="#contacto" class="dark-caja">
+        <div class="dark-col-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          COBERTURA
+        </div>
+        <div class="dark-col-title">Valencia</div>
+        <div class="dark-col-desc">Cobertura en el arco mediterráneo con capacidad de desplazamiento.</div>
+        <span class="dark-col-link">Consultar →</span>
+      </a>
+    </div>
+
+    <!-- Madrid Alliance -->
+    <div class="madrid-alliance-block">
+      <div class="madrid-content">
+        <div class="madrid-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          COBERTURA · ALIANZA ESTRATÉGICA
+        </div>
+        <h3>Madrid</h3>
+        <p>Cobertura en la capital mediante colaboración con <strong>GT Automoción</strong>, garantizando los mismos estándares de calidad y rigor técnico de Román Álvarez.</p>
+      </div>
+      <a href="https://gtautomocion.com/products/asesoramiento-presencial-y-estudio-de-viabilidad-para-informes-periciales?variant=42914229190725" target="_blank" rel="noopener" class="madrid-btn">
+        Consultar →
+      </a>
+    </div>
+
+    <!-- Divider -->
+    <div class="dark-divider"></div>
+
+    <!-- Booking Banner -->
+    <div class="dark-booking-banner">
+      <div class="dark-booking-left">
+        <div class="dark-booking-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <h4>¿Necesitas una peritación fuera de estas zonas?</h4>
+          <p>Posibilidad de desplazamiento nacional bajo consulta previa.</p>
+        </div>
+      </div>
+      <a href="#contacto" class="booking-btn">Reservar Consulta</a>
+    </div>
+  </div>
+</div>

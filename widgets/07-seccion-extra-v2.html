@@ -1,0 +1,884 @@
+<!-- ════════════════════════════════════════════════════════════════════════════════════
+  SECCIONES EXTRA - Bio, Metodología, Comunidad & Escuela
+  Combined advanced sections with animations and interactions
+  ════════════════════════════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+.extra-wrapper {
+  --navy: #0d1f3c;
+  --blue: #1a56db;
+  --blue-light: #3b82f6;
+  --blue-accent: #60a5fa;
+  --off-white: #f8f9fc;
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-700: #334155;
+  --slate-900: #0f172a;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --transition: .3s cubic-bezier(.4,0,.2,1);
+}
+
+.extra-wrapper * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   BIO SECTION
+   ════════════════════════════════════════════════════════════════ */
+
+.bio-section {
+  padding: 3.5rem 2rem;
+  background: linear-gradient(180deg, #ffffff 0%, var(--slate-100) 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.bio-section::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 12s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(30px); }
+}
+
+.bio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.bio-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--slate-500);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+  font-family: var(--font-sans);
+  animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.bio-text p strong {
+  color: var(--slate-800);
+  font-weight: 600;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1.2rem;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.section-tag::before {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 1.5px;
+  background: var(--blue);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--slate-900);
+  margin-bottom: 1.2rem;
+  animation: slideInUp 0.8s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-title em {
+  font-style: italic;
+  color: #1e3a68;
+}
+
+.bio-quote {
+  background: var(--slate-50);
+  padding: 2rem;
+  border-left: 3px solid var(--blue);
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  animation: slideInRight 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.quote-icon {
+  color: #c7d9f8;
+  margin-bottom: 1rem;
+  width: 32px;
+  height: 32px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.bio-quote blockquote {
+  font-size: 1.02rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--slate-700);
+  line-height: 1.65;
+  font-family: var(--font-serif);
+}
+
+.bio-quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-style: normal;
+}
+
+.bio-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.bio-card {
+  border: 1px solid var(--slate-100);
+  padding: 1.5rem;
+  transition: all var(--transition);
+  border-radius: 4px;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.bio-card:nth-child(1) { animation-delay: 0.3s; }
+.bio-card:nth-child(2) { animation-delay: 0.4s; }
+.bio-card:nth-child(3) { animation-delay: 0.5s; }
+.bio-card:nth-child(4) { animation-delay: 0.6s; }
+
+.bio-card:hover {
+  box-shadow: 0 20px 50px rgba(13, 31, 60, 0.1);
+  transform: translateY(-6px);
+  border-color: var(--blue-light);
+}
+
+.bio-card-tag {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: .6rem;
+}
+
+.bio-card p {
+  font-size: .85rem;
+  color: var(--slate-500);
+  line-height: 1.6;
+  margin: 0;
+  transition: color var(--transition);
+}
+
+.bio-card:hover p {
+  color: var(--slate-900);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   METODOLOGÍA SECTION
+   ════════════════════════════════════════════════════════════════ */
+
+.metodologia-section {
+  padding: 3.5rem 2rem;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.metodologia-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.metodologia-header {
+  max-width: 720px;
+  margin-bottom: 3.5rem;
+}
+
+.method-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+  gap: 2rem;
+}
+
+.method-step {
+  position: relative;
+  padding: 0 1.5rem 0 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.method-step:nth-child(1) { animation-delay: 0.2s; }
+.method-step:nth-child(2) { animation-delay: 0.3s; }
+.method-step:nth-child(3) { animation-delay: 0.4s; }
+
+.step-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--slate-200);
+  margin-bottom: 1rem;
+  line-height: 1;
+  transition: color var(--transition);
+  font-family: var(--font-serif);
+}
+
+.method-step:hover .step-number {
+  color: #c7d9f8;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-icon {
+  display: flex;
+  align-items: center;
+  color: var(--blue);
+  margin-bottom: .6rem;
+  transition: transform var(--transition);
+}
+
+.method-step:hover .step-icon {
+  transform: scale(1.15) rotate(10deg);
+}
+
+.step-content h3 {
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--slate-900);
+  margin-bottom: .6rem;
+  font-family: var(--font-sans);
+}
+
+.step-content p {
+  font-size: .9rem;
+  color: var(--slate-500);
+  font-weight: 300;
+  line-height: 1.7;
+  font-family: var(--font-sans);
+  transition: color var(--transition);
+}
+
+.method-step:hover .step-content p {
+  color: var(--slate-900);
+}
+
+.step-connector {
+  position: absolute;
+  top: 1.5rem;
+  right: 0;
+  width: 1.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--blue) 0%, transparent 100%);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   COMUNIDAD SECTION
+   ════════════════════════════════════════════════════════════════ */
+
+.comunidad-section {
+  padding: 3.5rem 2rem;
+  background: var(--slate-50);
+  position: relative;
+  overflow: hidden;
+}
+
+.comunidad-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.comunidad-content {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.comunidad-content > div:nth-child(2) {
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .95rem 2.2rem;
+  border-radius: 4px;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  animation: slideInUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(13, 31, 60, .25);
+}
+
+.btn-primary:hover {
+  background: var(--blue);
+  box-shadow: 0 8px 32px rgba(26, 86, 219, .35);
+  transform: translateY(-2px);
+}
+
+.comunidad-image {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.comunidad-image img {
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .1);
+  width: 100%;
+  transition: all var(--transition);
+}
+
+.comunidad-image img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, .15);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   ESCUELA SECTION
+   ════════════════════════════════════════════════════════════════ */
+
+.escuela-section {
+  padding: 3.5rem 2rem;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2a5082 50%, #305a8e 100%);
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+}
+
+.escuela-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 15s ease-in-out infinite;
+  z-index: 0;
+}
+
+.escuela-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.escuela-content {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.escuela-content .section-tag {
+  color: var(--blue-accent);
+}
+
+.escuela-content .section-tag::before {
+  background: var(--blue-accent);
+}
+
+.escuela-content .section-title {
+  color: #fff;
+}
+
+.escuela-content .section-title em {
+  color: #93c5fd;
+}
+
+.escuela-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, .65);
+  font-weight: 300;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.escuela-features {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  margin: 1.5rem 0;
+}
+
+.escuela-features li {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  font-size: .9rem;
+  color: rgba(255, 255, 255, .8);
+  font-weight: 300;
+  font-family: var(--font-sans);
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.escuela-features li:nth-child(1) { animation-delay: 0.1s; opacity: 0; }
+.escuela-features li:nth-child(2) { animation-delay: 0.2s; opacity: 0; }
+.escuela-features li:nth-child(3) { animation-delay: 0.3s; opacity: 0; }
+.escuela-features li:nth-child(4) { animation-delay: 0.4s; opacity: 0; }
+
+.escuela-features svg {
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.escuela-features li:hover svg {
+  transform: rotate(20deg) scale(1.2);
+}
+
+.escuela-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.btn-dark-white {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #0b1126;
+  font-weight: 800;
+  letter-spacing: .12em;
+  font-size: .8rem;
+  text-transform: uppercase;
+  padding: 1.2rem 2.8rem;
+  border-radius: 4px;
+  transition: all var(--transition);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  gap: .6rem;
+  animation: slideInUp 0.8s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.btn-dark-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(255, 255, 255, .15);
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: rgba(255, 255, 255, .8);
+  border: 1.5px solid rgba(255, 255, 255, .3);
+  animation: slideInUp 0.8s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, .15);
+  color: #fff;
+  border-color: rgba(255, 255, 255, .6);
+}
+
+.escuela-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  animation: slideInRight 0.8s ease-out;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  transition: all var(--transition);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.2s; }
+.stat-card:nth-child(2) { animation-delay: 0.3s; }
+.stat-card:nth-child(3) { animation-delay: 0.4s; }
+.stat-card:nth-child(4) { animation-delay: 0.5s; }
+
+.stat-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px);
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+  color: var(--blue-accent);
+  margin-bottom: 1rem;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: .5rem;
+  font-family: var(--font-serif);
+}
+
+.stat-label {
+  font-size: .9rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .bio-container,
+  .comunidad-container,
+  .escuela-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .method-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .bio-section,
+  .metodologia-section,
+  .comunidad-section,
+  .escuela-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .bio-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .escuela-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .method-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .step-connector {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .bio-section,
+  .metodologia-section,
+  .comunidad-section,
+  .escuela-section {
+    padding: 2.5rem 1.2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .escuela-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .escuela-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-dark-white,
+  .btn-outline-light {
+    width: 100%;
+  }
+}
+</style>
+
+<!-- BIO SECTION -->
+<section class="bio-section" id="bio">
+  <div class="bio-container">
+    <div class="bio-text">
+      <div class="section-tag">Trayectoria</div>
+      <h2 class="section-title">Más de una década definiendo el <em>estándar</em></h2>
+      <p>Como Perito de Automoción, mi trayectoria está marcada por el <strong>rigor absoluto</strong> y la <strong>solvencia técnica</strong>. Cada dictamen que firmo es el resultado de un análisis exhaustivo, sustentado en la física, la ingeniería y la normativa vigente.</p>
+      <p>Director de la <strong>Escuela Nacional de Peritos</strong> y fundador de la <strong>Comunidad Pericial</strong>, mi misión es elevar el nivel de la profesión y defender los derechos de los ciudadanos ante la complejidad técnica del sector de automoción.</p>
+    </div>
+
+    <div>
+      <div class="bio-quote">
+        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z"/></svg>
+        <blockquote>"En el juzgado, el informe pericial no es una opinión; es la materialización de la evidencia física aplicada con rigor científico."</blockquote>
+        <cite>— Román Álvarez Vijande</cite>
+      </div>
+      <div class="bio-cards">
+        <div class="bio-card">
+          <div class="bio-card-tag">Formación</div>
+          <p>Director de la Escuela Nacional de Peritos, centro de referencia reconocido por ASOPER.</p>
+        </div>
+        <div class="bio-card">
+          <div class="bio-card-tag">Comunidad</div>
+          <p>Fundador de la Comunidad Pericial, la mayor red profesional del sector en España.</p>
+        </div>
+        <div class="bio-card">
+          <div class="bio-card-tag">Ratificación</div>
+          <p>Más de 500 ratificaciones en juzgados de toda España, con alta tasa de aceptación.</p>
+        </div>
+        <div class="bio-card">
+          <div class="bio-card-tag">Cobertura</div>
+          <p>Presencia activa en Asturias, Madrid, Tenerife, Barcelona y Valencia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METODOLOGÍA SECTION -->
+<section class="metodologia-section" id="metodologia">
+  <div class="metodologia-container">
+    <div class="metodologia-header">
+      <div class="section-tag">Proceso</div>
+      <h2 class="section-title">Metodología de <em>trabajo</em></h2>
+      <p class="section-subtitle" style="font-size: 1.05rem; color: #64748b; font-weight: 300; line-height: 1.75;">Un proceso estructurado que garantiza la máxima fiabilidad y solvencia técnica en cada actuación pericial.</p>
+    </div>
+
+    <div class="method-steps">
+      <div class="method-step">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>Inspección &amp; Toma de Datos</h3>
+          <p>Examen presencial del vehículo con fotografía pericial, mediciones y lectura de unidades de control electrónico.</p>
+        </div>
+        <div class="step-connector"></div>
+      </div>
+
+      <div class="method-step">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Análisis &amp; Dictamen</h3>
+          <p>Estudio técnico con cálculos de ingeniería, simulaciones y fundamentación normativa para un dictamen sólido.</p>
+        </div>
+        <div class="step-connector"></div>
+      </div>
+
+      <div class="method-step">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <div class="step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Defensa &amp; Ratificación</h3>
+          <p>Presentación y defensa del informe pericial ante juzgados, aseguradoras y organismos competentes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMUNIDAD SECTION -->
+<section class="comunidad-section" id="comunidad">
+  <div class="comunidad-container">
+    <div class="comunidad-content">
+      <div>
+        <div class="section-tag">¿Eres perito?</div>
+        <h2 class="section-title">Comunidad <em>Pericial</em></h2>
+        <p class="section-subtitle" style="font-size: 1.05rem; color: #64748b; font-weight: 300; line-height: 1.75;">La mayor red de profesionales del sector pericial en España. Formación continua, networking y oportunidades de colaboración.</p>
+      </div>
+      <div>
+        <a href="https://comunidadpericial.com/" target="_blank" rel="noopener" class="btn btn-primary">Unirse Ahora</a>
+      </div>
+    </div>
+    <div class="comunidad-image">
+      <img src="https://romanalvarezperito.com/wp-content/uploads/2026/03/Comunidad-Pericial-Roman-Alvarez.png" alt="Comunidad Pericial — Román Álvarez" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ESCUELA SECTION -->
+<section class="escuela-section" id="escuela">
+  <div class="escuela-container">
+    <div class="escuela-content">
+      <div class="section-tag">Formación</div>
+      <h2 class="section-title">Escuela Nacional<br>de <em style="color:#93c5fd;">Peritos</em></h2>
+      <p class="escuela-subtitle">Director de la institución de referencia para la formación de peritos de automoción en España. Programas reconocidos por ASOPER.</p>
+      <ul class="escuela-features">
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Profesionales en activo como instructores
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Programas avalados por ASOPER
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Formación 100% online con casos reales
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Bolsa de trabajo para alumnos
+        </li>
+      </ul>
+      <div class="escuela-ctas">
+        <a href="https://plataforma.escuelanacionaldeperitos.com/" target="_blank" rel="noopener" class="btn-dark-white">Ver Programas</a>
+        <a href="https://lp.escuelanacionaldeperitos.com/725-2/" target="_blank" rel="noopener" class="btn btn-outline-light">Más Información</a>
+      </div>
+    </div>
+
+    <div class="escuela-stats">
+      <div class="stat-card">
+        <div class="stat-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          ALUMNOS
+        </div>
+        <div class="stat-number">1200<span style="font-size: 1.2rem;">+</span></div>
+        <div class="stat-label">alumnos formados desde la fundación</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          PROGRAMA
+        </div>
+        <div class="stat-number">450h</div>
+        <div class="stat-label">programa principal de peritación</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          SATISFACCIÓN
+        </div>
+        <div class="stat-number">98<span style="font-size: 1.2rem;">%</span></div>
+        <div class="stat-label">tasa de satisfacción de alumnos</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          COMUNIDAD
+        </div>
+        <div class="stat-number">14000<span style="font-size: 1.2rem;">+</span></div>
+        <div class="stat-label">seguidores en redes sociales</div>
+      </div>
+    </div>
+  </div>
+</section>

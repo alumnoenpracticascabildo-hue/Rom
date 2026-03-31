@@ -1,0 +1,393 @@
+<!-- ════════════════════════════════════════════════════════════════════════════════════
+  SERVICIOS - Service Cards Grid
+  Enhanced hover effects, stagger animations, and smooth transitions
+  ════════════════════════════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+.servicios-wrapper {
+  --navy: #0d1f3c;
+  --blue: #1a56db;
+  --blue-light: #3b82f6;
+  --off-white: #f8f9fc;
+  --slate-50: #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-300: #cbd5e1;
+  --slate-500: #64748b;
+  --slate-700: #334155;
+  --slate-900: #0f172a;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --transition: .3s cubic-bezier(.4,0,.2,1);
+}
+
+.servicios-wrapper * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.servicios-wrapper {
+  padding: 3.5rem 2rem;
+  background: linear-gradient(180deg, var(--off-white) 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background animation */
+.servicios-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+  animation: slideBackground 20s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes slideBackground {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(30px); }
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1.2rem;
+}
+
+.section-tag::before {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 1.5px;
+  background: var(--blue);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--slate-900);
+  margin-bottom: 1.2rem;
+}
+
+.section-title em {
+  font-style: italic;
+  color: #1e3a68;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--slate-500);
+  font-weight: 300;
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+.section-header-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--slate-300);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  outline: 1px solid var(--slate-100);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.servicio-card {
+  background: #fff;
+  padding: 2.2rem 2rem;
+  border: 1px solid var(--slate-100);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Stagger animation */
+.servicio-card:nth-child(1) { animation-delay: 0s; }
+.servicio-card:nth-child(2) { animation-delay: 0.1s; }
+.servicio-card:nth-child(3) { animation-delay: 0.2s; }
+.servicio-card:nth-child(4) { animation-delay: 0.3s; }
+.servicio-card:nth-child(5) { animation-delay: 0.4s; }
+.servicio-card:nth-child(6) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover glow effect */
+.servicio-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: all var(--transition);
+}
+
+.servicio-card:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.servicio-card:hover {
+  background: linear-gradient(135deg, #ffffff 0%, var(--slate-50) 100%);
+  box-shadow: 0 20px 50px rgba(13, 31, 60, 0.12);
+  transform: translateY(-8px);
+  z-index: 1;
+  border-color: var(--blue-light);
+}
+
+.service-icon {
+  color: var(--blue);
+  margin-bottom: 1.2rem;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  position: relative;
+  z-index: 1;
+}
+
+.servicio-card:hover .service-icon {
+  transform: scale(1.15) rotate(10deg);
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(26, 86, 219, 0.25);
+}
+
+.servicio-card h3 {
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: .8rem;
+  color: var(--slate-900);
+  font-family: var(--font-sans);
+  position: relative;
+  z-index: 1;
+}
+
+.servicio-card p {
+  font-size: .9rem;
+  color: var(--slate-500);
+  font-weight: 300;
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-sans);
+  position: relative;
+  z-index: 1;
+}
+
+.service-bar {
+  height: 2px;
+  background: var(--slate-200);
+  width: 2rem;
+  transition: width .6s cubic-bezier(.34,1.56,.64,1), background var(--transition);
+  position: relative;
+  z-index: 1;
+}
+
+.servicio-card:hover .service-bar {
+  width: 100%;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--blue-light) 100%);
+  box-shadow: 0 4px 12px rgba(26, 86, 219, 0.25);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .servicios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-header-quote {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicios-wrapper {
+    padding: 3rem 1.5rem;
+  }
+
+  .servicios-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .servicios-wrapper {
+    padding: 2.5rem 1.2rem;
+  }
+
+  .section-container {
+    padding: 0;
+  }
+
+  .servicio-card {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .section-tag {
+    font-size: .65rem;
+  }
+}
+</style>
+
+<div class="servicios-wrapper">
+  <div class="section-container">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">Áreas de Actuación</div>
+        <h2 class="section-title">Servicios de <em>Peritación</em></h2>
+        <p class="section-subtitle">Cobertura técnica integral para particulares, aseguradoras y profesionales del sector.</p>
+      </div>
+      <p class="section-header-quote">"La evidencia no miente."</p>
+    </div>
+
+    <div class="servicios-grid">
+      <!-- Servicio 1 -->
+      <div class="servicio-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>Accidentes de Tráfico</h3>
+        <p>Reconstrucción de siniestros con precisión física y biomecánica. Dictámenes aceptados en juzgados de toda España.</p>
+        <div class="service-bar"></div>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="servicio-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Defectos Ocultos</h3>
+        <p>Detección técnica de fallos mecánicos, vicios ocultos en vehículos de segunda mano y fraudes en compraventa.</p>
+        <div class="service-bar"></div>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="servicio-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Ratificación Judicial</h3>
+        <p>Defensa técnica del dictamen en sala. Más de 500 ratificaciones con alta tasa de aceptación pericial.</p>
+        <div class="service-bar"></div>
+      </div>
+
+      <!-- Servicio 4 -->
+      <div class="servicio-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Peritación Digital</h3>
+        <p>Análisis telemático de vehículos conectados: unidades de control, tacógrafo digital y registros EDR.</p>
+        <div class="service-bar"></div>
+      </div>
+
+      <!-- Servicio 5 -->
+      <div class="servicio-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Tasaciones Oficiales</h3>
+        <p>Valoración venal técnica oficial para seguros, herencias, divorcios y procedimientos judicales.</p>
+        <div class="service-bar"></div>
+      </div>
+
+      <!-- Servicio 6 -->
+      <div class="servicio-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Informes Periciales</h3>
+        <p>Elaboración de informes técnicos completos con documentación fotográfica, cálculos y normativa aplicable.</p>
+        <div class="service-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>
