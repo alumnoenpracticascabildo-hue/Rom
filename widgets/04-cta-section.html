@@ -1,0 +1,225 @@
+<!-- CTA SECTION - ROMANA ÁLVAREZ -->
+<style>
+  :root {
+    --primary-dark: #0d1f3c;
+    --primary-blue: #1a56db;
+    --light-blue: #3b82f6;
+    --white: #ffffff;
+    --bg-light: #f8f9fc;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .cta-section {
+    padding: 100px 40px;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #1a2d52 100%);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(26, 86, 219, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .cta-content {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: fadeInScale 0.8s ease-out;
+  }
+
+  .cta-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--light-blue);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-description {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 48px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: slideInUp 0.8s ease-out 0.2s backwards;
+  }
+
+  .btn {
+    font-family: 'Inter', sans-serif;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--light-blue), var(--primary-blue));
+    color: var(--white);
+    box-shadow: 0 20px 40px rgba(26, 86, 219, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 30px 60px rgba(26, 86, 219, 0.4);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--light-blue);
+  }
+
+  .btn-secondary:hover {
+    background: var(--light-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(26, 86, 219, 0.3);
+  }
+
+  .cta-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .feature-item {
+    animation: slideInUp 0.6s ease-out both;
+  }
+
+  .feature-item:nth-child(1) { animation-delay: 0.2s; }
+  .feature-item:nth-child(2) { animation-delay: 0.3s; }
+  .feature-item:nth-child(3) { animation-delay: 0.4s; }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+  }
+
+  .feature-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cta-section {
+      padding: 60px 20px;
+    }
+
+    .cta-title {
+      font-size: 1.8rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px 32px;
+    }
+
+    .cta-features {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-top: 50px;
+    }
+  }
+</style>
+
+<div class="cta-section">
+  <div class="cta-content">
+    <div class="cta-subtitle">Próximo Paso</div>
+    <h2 class="cta-title">¿Necesitas una Peritación Profesional?</h2>
+    <p class="cta-description">Contacta con nosotros para resolver tus asuntos con la máxima rigurosidad técnica y legal. Disponibles en toda España.</p>
+
+    <div class="cta-buttons">
+      <a href="#contacto" class="btn btn-primary">Solicitar Consulta</a>
+      <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
+    </div>
+
+    <div class="cta-features">
+      <div class="feature-item">
+        <div class="feature-icon">✓</div>
+        <div class="feature-text">Respuesta en 24 horas</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">✓</div>
+        <div class="feature-text">Cobertura Nacional</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">✓</div>
+        <div class="feature-text">Certificado Profesional</div>
+      </div>
+    </div>
+  </div>
+</div>

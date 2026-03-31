@@ -1,0 +1,300 @@
+<!-- METHODOLOGY TIMELINE - ROMANA ÁLVAREZ -->
+<style>
+  :root {
+    --primary-dark: #0d1f3c;
+    --primary-blue: #1a56db;
+    --light-blue: #3b82f6;
+    --white: #ffffff;
+    --bg-light: #f8f9fc;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --border-light: #e5e7eb;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .methodology-section {
+    padding: 100px 40px;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .methodology-header {
+    text-align: center;
+    margin-bottom: 80px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .methodology-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .methodology-header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .methodology-timeline {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  /* Línea vertical conectora */
+  .methodology-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--light-blue), var(--primary-blue));
+    transform: translateX(-1px);
+  }
+
+  .methodology-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .methodology-step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+    position: relative;
+  }
+
+  .methodology-step:nth-child(even) {
+    direction: rtl;
+  }
+
+  .methodology-step:nth-child(even) .step-content {
+    direction: ltr;
+  }
+
+  .step-number {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: var(--white);
+    border: 3px solid var(--light-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    z-index: 3;
+    box-shadow: 0 0 0 8px var(--bg-light);
+    animation: scaleIn 0.6s ease-out both;
+  }
+
+  .methodology-step:nth-child(1) .step-number { animation-delay: 0.1s; }
+  .methodology-step:nth-child(2) .step-number { animation-delay: 0.2s; }
+  .methodology-step:nth-child(3) .step-number { animation-delay: 0.3s; }
+
+  .step-content {
+    animation: slideInUp 0.6s ease-out both;
+  }
+
+  .methodology-step:nth-child(1) .step-content { animation-delay: 0.2s; }
+  .methodology-step:nth-child(2) .step-content { animation-delay: 0.3s; }
+  .methodology-step:nth-child(3) .step-content { animation-delay: 0.4s; }
+
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .step-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .step-features {
+    list-style: none;
+  }
+
+  .step-features li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    padding: 8px 0 8px 28px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .step-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--light-blue);
+    font-weight: 700;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .methodology-timeline::before {
+      left: 30px;
+    }
+
+    .methodology-step {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 100px;
+      padding-left: 100px;
+    }
+
+    .methodology-step:nth-child(even) {
+      direction: ltr;
+    }
+
+    .step-number {
+      position: absolute;
+      left: 0;
+      transform: translateX(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .methodology-section {
+      padding: 60px 20px;
+    }
+
+    .methodology-header {
+      margin-bottom: 60px;
+    }
+
+    .methodology-timeline::before {
+      left: 25px;
+    }
+
+    .methodology-step {
+      padding-left: 80px;
+      margin-bottom: 80px;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+    }
+
+    .step-title {
+      font-size: 1.3rem;
+    }
+  }
+</style>
+
+<div class="methodology-section">
+  <div class="methodology-header">
+    <h2>Nuestro Proceso</h2>
+    <p>Metodología rigurosamente probada para garantizar peritaciones de máxima calidad</p>
+  </div>
+
+  <div class="methodology-timeline">
+    <div class="methodology-steps">
+      <!-- Step 1 -->
+      <div class="methodology-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3 class="step-title">Inspección Inicial</h3>
+          <p class="step-description">Análisis completo del objeto de peritación con documentación fotográfica y toma de medidas precisas.</p>
+          <ul class="step-features">
+            <li>Inspección visual exhaustiva</li>
+            <li>Fotografía técnica</li>
+            <li>Mediciones detalladas</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="methodology-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3 class="step-title">Análisis Técnico</h3>
+          <p class="step-description">Estudio profundo basado en normativas internacionales, ensayos y criterios de experto certificado.</p>
+          <ul class="step-features">
+            <li>Análisis conforme a estándares ISO</li>
+            <li>Pruebas especializadas</li>
+            <li>Consulta de normativa técnica</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="methodology-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3 class="step-title">Informe Oficial</h3>
+          <p class="step-description">Redacción del informe pericial con conclusiones definitivas, válido para procedimientos judiciales.</p>
+          <ul class="step-features">
+            <li>Informe profesional certificado</li>
+            <li>Conclusiones fundamentadas</li>
+            <li>Válido para procedimientos legales</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

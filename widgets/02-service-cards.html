@@ -1,0 +1,230 @@
+<!-- SERVICE CARDS GRID - ROMANA ÁLVAREZ -->
+<style>
+  :root {
+    --primary-dark: #0d1f3c;
+    --primary-blue: #1a56db;
+    --light-blue: #3b82f6;
+    --white: #ffffff;
+    --bg-light: #f8f9fc;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --border-light: #e5e7eb;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .services-section {
+    padding: 100px 40px;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: 80px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .services-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .services-header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 40px 32px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.6s ease-out both;
+  }
+
+  .service-card:nth-child(1) { animation-delay: 0.1s; }
+  .service-card:nth-child(2) { animation-delay: 0.2s; }
+  .service-card:nth-child(3) { animation-delay: 0.3s; }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .service-card:hover {
+    border-color: var(--light-blue);
+    box-shadow: 0 20px 60px rgba(26, 86, 219, 0.15);
+    transform: translateY(-8px);
+  }
+
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 24px;
+    transition: all 0.4s ease;
+  }
+
+  .service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 35px rgba(26, 86, 219, 0.25);
+  }
+
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .service-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .service-link {
+    font-family: 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+
+  .service-link:hover {
+    color: var(--primary-dark);
+    gap: 12px;
+  }
+
+  .service-link::after {
+    content: '→';
+    transition: transform 0.3s ease;
+  }
+
+  .service-link:hover::after {
+    transform: translateX(4px);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-section {
+      padding: 60px 20px;
+    }
+
+    .services-header {
+      margin-bottom: 60px;
+    }
+
+    .services-grid {
+      gap: 30px;
+    }
+
+    .service-card {
+      padding: 30px 24px;
+    }
+  }
+</style>
+
+<div class="services-section">
+  <div class="services-header">
+    <h2>Áreas de Actuación</h2>
+    <p>Servicios especializados de peritación con máxima rigurosidad y profesionalismo</p>
+  </div>
+
+  <div class="services-grid">
+    <!-- Service 1 -->
+    <div class="service-card">
+      <div class="service-icon">🚗</div>
+      <h3 class="service-title">Peritación de Automoción</h3>
+      <p class="service-description">Análisis exhaustivo de daños en vehículos, reconstrucción de accidentes y valoración técnica con estándares internacionales.</p>
+      <a href="#contacto" class="service-link">Solicitar servicio</a>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-card">
+      <div class="service-icon">📋</div>
+      <h3 class="service-title">Asesoría Legal</h3>
+      <p class="service-description">Apoyo técnico especializado para procesos judiciales, informes periciales y dictámenes técnicos de valor probatorio.</p>
+      <a href="#contacto" class="service-link">Solicitar servicio</a>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-card">
+      <div class="service-icon">🎓</div>
+      <h3 class="service-title">Formación Especializada</h3>
+      <p class="service-description">Programas educativos de la Escuela Nacional de Peritos para profesionales que buscan certificación oficial.</p>
+      <a href="#contacto" class="service-link">Solicitar servicio</a>
+    </div>
+  </div>
+</div>

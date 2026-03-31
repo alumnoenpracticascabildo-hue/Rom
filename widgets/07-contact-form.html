@@ -1,0 +1,351 @@
+<!-- CONTACT FORM SECTION - ROMANA ÁLVAREZ -->
+<style>
+  :root {
+    --primary-dark: #0d1f3c;
+    --primary-blue: #1a56db;
+    --light-blue: #3b82f6;
+    --white: #ffffff;
+    --bg-light: #f8f9fc;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --border-light: #e5e7eb;
+    --success: #10b981;
+    --error: #ef4444;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .contact-section {
+    padding: 100px 40px;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .contact-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .contact-form {
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    animation: slideInUp 0.8s ease-out;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group.full {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: 'Inter', sans-serif;
+    padding: 12px 16px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background: var(--white);
+    transition: all 0.3s ease;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border-color: var(--light-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    background: var(--white);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-light);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--light-blue);
+  }
+
+  .checkbox-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    cursor: pointer;
+    margin: 0;
+  }
+
+  .checkbox-label a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .checkbox-label a:hover {
+    color: var(--light-blue);
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(26, 86, 219, 0.2);
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(26, 86, 219, 0.3);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+
+  .submit-btn.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .form-message {
+    margin-top: 24px;
+    padding: 16px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    display: none;
+    animation: slideInUp 0.4s ease-out;
+  }
+
+  .form-message.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    border: 1px solid var(--success);
+    display: block;
+  }
+
+  .form-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+    border: 1px solid var(--error);
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      padding: 60px 20px;
+    }
+
+    .contact-form {
+      padding: 30px 20px;
+    }
+
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+      grid-column: 1;
+    }
+  }
+</style>
+
+<div class="contact-section" id="contacto">
+  <div class="contact-container">
+    <div class="contact-header">
+      <h2>Ponte en Contacto</h2>
+      <p>Completa el formulario y nos pondremos en contacto en 24 horas</p>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="nombre">Nombre Completo *</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo Electrónico *</label>
+          <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="+34 XXX XXX XXX">
+        </div>
+
+        <div class="form-group">
+          <label for="empresa">Empresa</label>
+          <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa">
+        </div>
+
+        <div class="form-group">
+          <label for="servicio">Tipo de Servicio *</label>
+          <select id="servicio" name="servicio" required>
+            <option value="">Selecciona un servicio</option>
+            <option value="peritacion">Peritación de Automoción</option>
+            <option value="asesoria">Asesoría Legal</option>
+            <option value="formacion">Formación Especializada</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="provincia">Provincia *</label>
+          <input type="text" id="provincia" name="provincia" placeholder="Tu provincia" required>
+        </div>
+
+        <div class="form-group full">
+          <label for="mensaje">Mensaje *</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu caso..." required></textarea>
+        </div>
+      </div>
+
+      <div class="form-checkbox">
+        <input type="checkbox" id="terminos" name="terminos" required>
+        <label for="terminos" class="checkbox-label">
+          Acepto la <a href="#">política de privacidad</a> y términos de servicio
+        </label>
+      </div>
+
+      <button type="submit" class="submit-btn">Enviar Solicitud</button>
+
+      <div class="form-message" id="formMessage"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const submitBtn = form.querySelector('.submit-btn');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    submitBtn.classList.add('loading');
+    submitBtn.textContent = 'Enviando...';
+
+    try {
+      // Aquí iría la integración con tu servicio de email (Formspree, etc.)
+      // Por ahora mostramos un mensaje de éxito simulado
+
+      const formData = new FormData(form);
+
+      // Simular envío
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      formMessage.classList.remove('error');
+      formMessage.classList.add('success');
+      formMessage.textContent = '✓ Solicitud enviada correctamente. Nos pondremos en contacto pronto.';
+
+      form.reset();
+      submitBtn.textContent = 'Enviar Solicitud';
+      submitBtn.classList.remove('loading');
+
+      setTimeout(() => {
+        formMessage.classList.remove('success');
+      }, 5000);
+
+    } catch (error) {
+      formMessage.classList.remove('success');
+      formMessage.classList.add('error');
+      formMessage.textContent = '✗ Error al enviar. Por favor, intenta nuevamente.';
+      submitBtn.textContent = 'Enviar Solicitud';
+      submitBtn.classList.remove('loading');
+    }
+  });
+</script>

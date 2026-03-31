@@ -1,0 +1,228 @@
+<!-- TESTIMONIALS SECTION - ROMANA ÁLVAREZ -->
+<style>
+  :root {
+    --primary-dark: #0d1f3c;
+    --primary-blue: #1a56db;
+    --light-blue: #3b82f6;
+    --white: #ffffff;
+    --bg-light: #f8f9fc;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --border-light: #e5e7eb;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .testimonials-section {
+    padding: 100px 40px;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--white) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 80px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .testimonials-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .testimonials-header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    animation: slideInUp 0.6s ease-out both;
+  }
+
+  .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+  .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+  .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+
+  .testimonial-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(26, 86, 219, 0.15);
+  }
+
+  .testimonial-stars {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+
+  .testimonial-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 32px;
+    position: relative;
+    padding-left: 24px;
+  }
+
+  .testimonial-text::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--light-blue);
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .author-info h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .author-info p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-section {
+      padding: 60px 20px;
+    }
+
+    .testimonials-header {
+      margin-bottom: 60px;
+    }
+
+    .testimonials-grid {
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      padding: 30px;
+    }
+  }
+</style>
+
+<div class="testimonials-section">
+  <div class="testimonials-header">
+    <h2>Lo que Dicen Nuestros Clientes</h2>
+    <p>Profesionales y empresas que confían en nuestros servicios de peritación</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <!-- Testimonial 1 -->
+    <div class="testimonial-card">
+      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+      <p class="testimonial-text">Trabajo impecable. La precisión técnica y el rigor profesional de Romana Álvarez son excepcionales. Sus informes son determinantes en procesos legales.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">JC</div>
+        <div class="author-info">
+          <h4>Juan Carlos</h4>
+          <p>Abogado Especializado</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="testimonial-card">
+      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+      <p class="testimonial-text">Como perito colaborador, puedo afirmar que es una referencia en el sector. Su liderazgo en la Escuela Nacional de Peritos eleva los estándares de toda la profesión.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">MR</div>
+        <div class="author-info">
+          <h4>María Rodríguez</h4>
+          <p>Perito Colaborador</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="testimonial-card">
+      <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+      <p class="testimonial-text">Sus servicios son indispensables para nuestros casos complejos. Confiable, transparente y siempre disponible cuando más se necesita. Altamente recomendado.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AR</div>
+        <div class="author-info">
+          <h4>Andrea López</h4>
+          <p>Gestoría Legal</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
