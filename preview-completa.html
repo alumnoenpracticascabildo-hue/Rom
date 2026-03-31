@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romana Álvarez - Preview Completa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* ======================== NAVBAR ======================== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(13, 31, 60, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3b82f6;
+        }
+
+        body {
+            padding-top: 70px;
+        }
+
+        /* ======================== HERO SECTION ======================== */
+        .section {
+            scroll-behavior: smooth;
+        }
+
+        .hero-container {
+            background: linear-gradient(135deg, #0d1f3c 0%, #1a2d52 100%);
+            color: #ffffff;
+            padding: 80px 40px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(26, 86, 219, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .hero-text .tagline {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #3b82f6;
+            margin-bottom: 32px;
+            letter-spacing: 0.05em;
+            animation: slideInLeft 0.8s ease-out 0.1s backwards;
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            max-width: 500px;
+            animation: slideInLeft 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            animation: slideInLeft 0.8s ease-out 0.3s backwards;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #1a56db;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(26, 86, 219, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #3b82f6;
+        }
+
+        .btn-secondary:hover {
+            background: #3b82f6;
+            color: #0d1f3c;
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+            animation: slideInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.05em;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+            display: block;
+        }
+
+        .image-badge {
+            position: absolute;
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            bottom: 30px;
+            left: 30px;
+            box-shadow: 0 20px 40px rgba(26, 86, 219, 0.3);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        /* ======================== SERVICES ======================== */
+        .services-section {
+            padding: 100px 40px;
+            background: #ffffff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #0d1f3c;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 40px 32px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.6s ease-out both;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1a56db, #3b82f6);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 20px 60px rgba(26, 86, 219, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1a56db, #3b82f6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 24px;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 35px rgba(26, 86, 219, 0.25);
+        }
+
+        .service-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0d1f3c;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .service-description {
+            font-size: 0.95rem;
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1a56db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-link:hover {
+            color: #0d1f3c;
+            gap: 12px;
+        }
+
+        /* ======================== METHODOLOGY ======================== */
+        .methodology-section {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+        }
+
+        .methodology-timeline {
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .methodology-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #3b82f6, #1a56db);
+            transform: translateX(-1px);
+        }
+
+        .methodology-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .methodology-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .methodology-step:nth-child(even) {
+            direction: rtl;
+        }
+
+        .methodology-step:nth-child(even) .step-content {
+            direction: ltr;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: #ffffff;
+            border: 3px solid #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a56db;
+            z-index: 3;
+            box-shadow: 0 0 0 8px #f8f9fc;
+            animation: scaleIn 0.6s ease-out both;
+        }
+
+        .methodology-step:nth-child(1) .step-number { animation-delay: 0.1s; }
+        .methodology-step:nth-child(2) .step-number { animation-delay: 0.2s; }
+        .methodology-step:nth-child(3) .step-number { animation-delay: 0.3s; }
+
+        .step-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0d1f3c;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .step-description {
+            font-size: 1rem;
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .step-features {
+            list-style: none;
+        }
+
+        .step-features li {
+            font-size: 0.95rem;
+            color: #1f2937;
+            padding: 8px 0 8px 28px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .step-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: 700;
+        }
+
+        /* ======================== STATS ======================== */
+        .stats-section {
+            padding: 100px 40px;
+            background: #ffffff;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            position: relative;
+            animation: slideInUp 0.6s ease-out both;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1a56db, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        .stat-value {
+            font-size: 1rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .stat-description {
+            font-size: 0.95rem;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        /* ======================== TESTIMONIALS ======================== */
+        .testimonials-section {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            animation: slideInUp 0.6s ease-out both;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .testimonial-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(26, 86, 219, 0.15);
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: #1f2937;
+            line-height: 1.8;
+            margin-bottom: 32px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #3b82f6;
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a56db, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        /* ======================== CTA ======================== */
+        .cta-section {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #0d1f3c 0%, #1a2d52 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(26, 86, 219, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        .cta-subtitle {
+            font-size: 0.95rem;
+            color: #3b82f6;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-description {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .cta-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-item {
+            animation: slideInUp 0.6s ease-out both;
+        }
+
+        .feature-item:nth-child(1) { animation-delay: 0.2s; }
+        .feature-item:nth-child(2) { animation-delay: 0.3s; }
+        .feature-item:nth-child(3) { animation-delay: 0.4s; }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-text {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ======================== CONTACT ======================== */
+        .contact-section {
+            padding: 100px 40px;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .contact-form {
+            background: #f8f9fc;
+            border-radius: 12px;
+            padding: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea,
+        select {
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #1f2937;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            background: #ffffff;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #3b82f6;
+        }
+
+        .checkbox-label {
+            font-size: 0.95rem;
+            color: #6b7280;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #1a56db, #3b82f6);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(26, 86, 219, 0.2);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(26, 86, 219, 0.3);
+        }
+
+        /* ======================== FOOTER ======================== */
+        footer {
+            background: #0d1f3c;
+            color: #ffffff;
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        /* ======================== ANIMATIONS ======================== */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ======================== RESPONSIVE ======================== */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            nav a {
+                margin: 5px 0;
+                font-size: 0.85rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .services-grid,
+            .testimonials-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .methodology-timeline::before {
+                left: 30px;
+            }
+
+            .methodology-step {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding-left: 100px;
+            }
+
+            .cta-title {
+                font-size: 1.8rem;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">🔹 Romana Álvarez</div>
+        <div>
+            <a href="#hero">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#proceso">Proceso</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="section hero-container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Rigor de peritación al servicio de la justicia</h1>
+                <p class="tagline">La evidencia no miente</p>
+                <p>Director de la Escuela Nacional de Peritos, Perito de Automoción e impulsor de la Comunidad Pericial</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary">Solicitar Peritación</button>
+                    <button class="btn btn-secondary">Conocer Más</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">AÑOS EXPERIENCIA</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">PERITACIONES</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=600&fit=crop" alt="Romana Álvarez">
+                <div class="image-badge">Experto Certificado</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="servicios" class="section services-section">
+        <div class="section-header">
+            <h2>Áreas de Actuación</h2>
+            <p>Servicios especializados de peritación con máxima rigurosidad y profesionalismo</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3 class="service-title">Peritación de Automoción</h3>
+                <p class="service-description">Análisis exhaustivo de daños en vehículos, reconstrucción de accidentes y valoración técnica con estándares internacionales.</p>
+                <a href="#contacto" class="service-link">Solicitar servicio →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3 class="service-title">Asesoría Legal</h3>
+                <p class="service-description">Apoyo técnico especializado para procesos judiciales, informes periciales y dictámenes técnicos de valor probatorio.</p>
+                <a href="#contacto" class="service-link">Solicitar servicio →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎓</div>
+                <h3 class="service-title">Formación Especializada</h3>
+                <p class="service-description">Programas educativos de la Escuela Nacional de Peritos para profesionales que buscan certificación oficial.</p>
+                <a href="#contacto" class="service-link">Solicitar servicio →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- METHODOLOGY SECTION -->
+    <section id="proceso" class="section methodology-section">
+        <div class="section-header">
+            <h2>Nuestro Proceso</h2>
+            <p>Metodología rigurosamente probada para garantizar peritaciones de máxima calidad</p>
+        </div>
+        <div class="methodology-timeline">
+            <div class="methodology-steps">
+                <div class="methodology-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Inspección Inicial</h3>
+                        <p class="step-description">Análisis completo del objeto de peritación con documentación fotográfica y toma de medidas precisas.</p>
+                        <ul class="step-features">
+                            <li>Inspección visual exhaustiva</li>
+                            <li>Fotografía técnica</li>
+                            <li>Mediciones detalladas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="methodology-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Análisis Técnico</h3>
+                        <p class="step-description">Estudio profundo basado en normativas internacionales, ensayos y criterios de experto certificado.</p>
+                        <ul class="step-features">
+                            <li>Análisis conforme a estándares ISO</li>
+                            <li>Pruebas especializadas</li>
+                            <li>Consulta de normativa técnica</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="methodology-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Informe Oficial</h3>
+                        <p class="step-description">Redacción del informe pericial con conclusiones definitivas, válido para procedimientos judiciales.</p>
+                        <ul class="step-features">
+                            <li>Informe profesional certificado</li>
+                            <li>Conclusiones fundamentadas</li>
+                            <li>Válido para procedimientos legales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="section stats-section">
+        <div class="section-header">
+            <h2>Números que Hablan por Sí Solos</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">5000</div>
+                <div class="stat-value">Peritaciones</div>
+                <div class="stat-description">Casos resueltos con máximo profesionalismo</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">25</div>
+                <div class="stat-value">Años Experiencia</div>
+                <div class="stat-description">Trayectoria profesional reconocida</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">98%</div>
+                <div class="stat-value">Satisfacción</div>
+                <div class="stat-description">Clientes completamente satisfechos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">30</div>
+                <div class="stat-value">Comunidades</div>
+                <div class="stat-description">Presencia en toda España</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="section testimonials-section">
+        <div class="section-header">
+            <h2>Lo que Dicen Nuestros Clientes</h2>
+            <p>Profesionales y empresas que confían en nuestros servicios de peritación</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Trabajo impecable. La precisión técnica y el rigor profesional de Romana Álvarez son excepcionales. Sus informes son determinantes en procesos legales."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JC</div>
+                    <div class="author-info">
+                        <h4>Juan Carlos</h4>
+                        <p>Abogado Especializado</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Como perito colaborador, puedo afirmar que es una referencia en el sector. Su liderazgo en la Escuela Nacional de Peritos eleva los estándares."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MR</div>
+                    <div class="author-info">
+                        <h4>María Rodríguez</h4>
+                        <p>Perito Colaborador</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Sus servicios son indispensables para nuestros casos complejos. Confiable, transparente y siempre disponible cuando más se necesita."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AR</div>
+                    <div class="author-info">
+                        <h4>Andrea López</h4>
+                        <p>Gestoría Legal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section cta-section">
+        <div class="cta-content">
+            <div class="cta-subtitle">Próximo Paso</div>
+            <h2 class="cta-title">¿Necesitas una Peritación Profesional?</h2>
+            <p class="cta-description">Contacta con nosotros para resolver tus asuntos con la máxima rigurosidad técnica y legal. Disponibles en toda España.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary">Solicitar Consulta</button>
+                <button class="btn btn-secondary">Ver Servicios</button>
+            </div>
+            <div class="cta-features">
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">Respuesta en 24 horas</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">Cobertura Nacional</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <div class="feature-text">Certificado Profesional</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contacto" class="section contact-section">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2>Ponte en Contacto</h2>
+                <p>Completa el formulario y nos pondremos en contacto en 24 horas</p>
+            </div>
+            <form class="contact-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" placeholder="+34 XXX XXX XXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa">Empresa</label>
+                        <input type="text" id="empresa" placeholder="Nombre de la empresa">
+                    </div>
+                    <div class="form-group">
+                        <label for="servicio">Tipo de Servicio *</label>
+                        <select id="servicio" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="peritacion">Peritación de Automoción</option>
+                            <option value="asesoria">Asesoría Legal</option>
+                            <option value="formacion">Formación Especializada</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="provincia">Provincia *</label>
+                        <input type="text" id="provincia" placeholder="Tu provincia" required>
+                    </div>
+                    <div class="form-group full">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" placeholder="Cuéntanos sobre tu caso..." required></textarea>
+                    </div>
+                </div>
+                <div class="form-checkbox">
+                    <input type="checkbox" id="terminos" required>
+                    <label for="terminos" class="checkbox-label">Acepto la política de privacidad</label>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Romana Álvarez Peritos. Todos los derechos reservados.</p>
+        <p>Diseño profesional con widgets HTML personalizados para Elementor</p>
+    </footer>
+</body>
+</html>
